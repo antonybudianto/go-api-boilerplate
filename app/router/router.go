@@ -1,4 +1,4 @@
-package main
+package router
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-// GetRouter return the router of our API
+// GetRouter return the router
 func GetRouter() *httprouter.Router {
 	router := httprouter.New()
 

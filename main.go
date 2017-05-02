@@ -1,21 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
+import "github.com/baptistelambert/go-api-boilerplate/app"
 
 func main() {
-	fmt.Println("Starting the app...")
-
-	config, err := LoadConfig("./config.json")
-	if err != nil {
-		panic(err)
-	}
-
-	addr := config.Host + ":" + config.Port
-
-	router := GetRouter()
-
-	http.ListenAndServe(addr, router)
+	app := &app.App{}
+	app.Init()
+	app.Start()
 }

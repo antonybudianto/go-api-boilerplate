@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"encoding/json"
@@ -12,16 +12,19 @@ type Config struct {
 }
 
 // LoadConfig load the config.json file and return its data
-func LoadConfig(fileName string) (Config, error) {
-	config := Config{}
+func LoadConfig() *Config {
+	config := &Config{}
 
-	configFile, err := os.Open(fileName)
+	configFile, err := os.Open("./config.json")
 	defer configFile.Close()
 	if err != nil {
 		panic(err)
 	}
 
 	err = json.NewDecoder(configFile).Decode(&config)
+	if err != nil {
+		panic(err)
+	}
 
-	return config, err
+	return config
 }
