@@ -7,12 +7,11 @@ import (
 
 	"github.com/baptistelambert/go-api-boilerplate/app/router"
 	"github.com/baptistelambert/go-api-boilerplate/config"
-	"github.com/julienschmidt/httprouter"
 )
 
-// App contain our config and our router
+// App contains our config and our router
 type App struct {
-	Router *httprouter.Router
+	Router *router.Router
 	Config *config.Config
 }
 
